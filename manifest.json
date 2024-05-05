@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "version": "1.0.0",
+  "default_locale": "en",
+  "description": "__MSG_extDescription__",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "64": "assets/icons/icon64.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "action": {
+    "default_icon": "assets/icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "assets/js/background.js"
+  },
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "js": ["assets/js/loader.js"],
+      "matches": ["https://*.csdn.net/*"],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": ["<all_urls>"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/js/content.js"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
